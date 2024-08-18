@@ -1,0 +1,112 @@
+<div class="w-10/12 mx-auto">
+    <div *ngIf="errorMsg" class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+        <span class="font-medium">ERROR:</span>
+        {{errorMsg}}
+    </div>
+    <h2>Register Now:</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="sendData()">
+        <div class="mt-2">
+            <label for="name">Name:</label>
+            <input formControlName="name" type="text" id="name" class="w-full rounded-lg border-gray-300 ">
+
+            @if (registerForm.get("name")?.touched && registerForm.get("name")?.errors) {
+            <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+                <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                    <span class="font-medium">At least 3 characters (and up to 20 characters)</span>
+                </div>
+            </div>
+            }
+
+        </div>
+        <div class="mt-2">
+            <label for="email">Email:</label>
+            <input formControlName="email" type="email" id="email" class="w-full rounded-lg border-gray-300 ">
+            @if (registerForm.get("email")?.touched && registerForm.get("email")?.errors) {
+            <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+                <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                    <span class="font-medium">ex: example&#64;domain.com</span>
+                </div>
+            </div>
+            }
+        </div>
+        <div class="mt-2">
+            <label for="phone">Phone:</label>
+            <input formControlName="phone" type="tel" id="phone" class="w-full rounded-lg border-gray-300 ">
+            @if (registerForm.get("phone")?.touched && registerForm.get("phone")?.errors) {
+            <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+                <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                    <span class="font-medium">Ensure that these requirements are met:</span>
+                    <ul class="mt-1.5 list-disc list-inside">
+                        <li>Starts with 01[0|1|2|5].</li>
+                        <li>Equal to 11 number.</li>
+                    </ul>
+                </div>
+            </div>
+            }
+        </div>
+        <div class="mt-2">
+            <label for="password">Password:</label>
+            <input formControlName="password" type="password" id="password" class="w-full rounded-lg border-gray-300 ">
+            @if (registerForm.get("password")?.touched && registerForm.get("password")?.errors) {
+            <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+                <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                    <span class="font-medium">Ensure that these requirements are met:</span>
+                    <ul class="mt-1.5 list-disc list-inside">
+                        <li>First character is uppercase.</li>
+                        <li>At least 6 characters or numbers.</li>
+                    </ul>
+                </div>
+            </div>
+            }
+        </div>
+        <div class="mt-2">
+            <label for="repassword">RePassword:</label>
+            <input formControlName="rePassword" type="password" id="repassword"
+                class="w-full rounded-lg border-gray-300 ">
+            @if (registerForm.get("rePassword")?.touched && registerForm.errors) {
+            <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+                <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                    <span class="font-medium">Passwords doesn't match.</span>
+                </div>
+            </div>
+            }
+        </div>
+
+        <button [disabled]="registerForm.invalid" class="btn-main block ms-auto mt-2">Register</button>
+    </form>
+</div>
